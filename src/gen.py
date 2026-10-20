@@ -363,7 +363,7 @@ page = f"""<!DOCTYPE html>
       <p class="lead" data-i18n="contact_p">{th("contact_p")}</p>
       <div class="mail-row">
         <a class="mail-big" href="mailto:{EMAIL}">{EMAIL}</a>
-        <button type="button" class="copy-btn" data-copy="{EMAIL}" hidden><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 5h8v8H5zM3 11V3h8"/></svg><span data-i18n="copy">{th("copy")}</span></button>
+        <button type="button" class="copy-btn" data-copy="{EMAIL}" hidden><svg class="ico ico-copy" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 5h8v8H5zM3 11V3h8"/></svg><svg class="ico ico-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span data-i18n="copy">{th("copy")}</span></button>
       </div>
       <p class="copy-status" role="status" aria-live="polite"></p>
       <p class="contact-meta"><span data-i18n="phone">{th("phone")}</span> <a class="text-link" href="tel:{PHONE_TEL}" data-i18n="phone_num">{th("phone_num")}</a> {socials}</p>

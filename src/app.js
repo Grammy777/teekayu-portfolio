@@ -65,11 +65,20 @@
       try {
         await navigator.clipboard.writeText(copyBtn.dataset.copy);
         copyStatus.textContent = I18N.copied[lang];
+        copyStatus.classList.add("sr"); // the button shows it; screen readers still hear it
+        // The button itself answers too: label and icon become "copied" for a moment.
+        copyBtn.classList.add("is-copied");
+        copyBtn.querySelector("[data-i18n]").textContent = I18N.copied[lang];
       } catch (e) {
         copyStatus.textContent = I18N.copy_fail[lang];
+        copyStatus.classList.remove("sr");
       }
       clearTimeout(timer);
-      timer = setTimeout(() => { copyStatus.textContent = ""; }, 4000);
+      timer = setTimeout(() => {
+        copyStatus.textContent = "";
+        copyBtn.classList.remove("is-copied");
+        copyBtn.querySelector("[data-i18n]").textContent = I18N.copy[root.lang === "en" ? "en" : "th"];
+      }, 2500);
     });
   }
 
@@ -130,6 +139,9 @@
       if (n === stage) s.setAttribute("aria-current", "step"); else s.removeAttribute("aria-current");
     });
     works.forEach((w, i) => w.classList.toggle("is-current", i === cur));
+    // Reading past the middle of the last row closes the loop: every stage ticks.
+    const last = works[works.length - 1].getBoundingClientRect();
+    pipe.classList.toggle("complete", cur === works.length - 1 && line - last.top >= last.height * 0.5);
   }
   let ticking = false;
   const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
