@@ -55,10 +55,10 @@
   });
 
   /* ---------- copy email ---------- */
-  const copyBtn = document.querySelector(".copy-btn");
   const copyStatus = document.querySelector(".copy-status");
-  if (copyBtn && navigator.clipboard && window.isSecureContext) {
+  if (navigator.clipboard && window.isSecureContext) document.querySelectorAll(".copy-btn").forEach(copyBtn => {
     copyBtn.hidden = false;
+    const label = copyBtn.querySelector("[data-i18n]");
     let timer;
     copyBtn.addEventListener("click", async () => {
       const lang = root.lang === "en" ? "en" : "th";
@@ -68,7 +68,7 @@
         copyStatus.classList.add("sr"); // the button shows it; screen readers still hear it
         // The button itself answers too: label and icon become "copied" for a moment.
         copyBtn.classList.add("is-copied");
-        copyBtn.querySelector("[data-i18n]").textContent = I18N.copied[lang];
+        if (label) label.textContent = I18N.copied[lang];
       } catch (e) {
         copyStatus.textContent = I18N.copy_fail[lang];
         copyStatus.classList.remove("sr");
@@ -77,10 +77,10 @@
       timer = setTimeout(() => {
         copyStatus.textContent = "";
         copyBtn.classList.remove("is-copied");
-        copyBtn.querySelector("[data-i18n]").textContent = I18N.copy[root.lang === "en" ? "en" : "th"];
+        if (label) label.textContent = I18N.copy[root.lang === "en" ? "en" : "th"];
       }, 2500);
     });
-  }
+  });
 
   if (!("IntersectionObserver" in window)) return;
 
@@ -106,7 +106,7 @@
   }
 
   /* ---------- pipeline advances with the work being read ---------- */
-  const ORDER = ["req", "spec", "build", "test"];
+  const ORDER = ["req", "spec", "design", "test"];
   const pipe = document.querySelector(".pipe");
   const steps = [...document.querySelectorAll(".step")];
   const works = [...document.querySelectorAll(".work")];
@@ -135,8 +135,8 @@
     pipe.dataset.stage = ORDER[stage];
     steps.forEach((s, n) => {
       s.classList.toggle("done", cur >= 0 && n < stage);
-      s.classList.toggle("now", n === stage);
-      if (n === stage) s.setAttribute("aria-current", "step"); else s.removeAttribute("aria-current");
+      s.classList.toggle("now", cur >= 0 && n === stage);
+      if (cur >= 0 && n === stage) s.setAttribute("aria-current", "step"); else s.removeAttribute("aria-current");
     });
     works.forEach((w, i) => w.classList.toggle("is-current", i === cur));
     // Reading past the middle of the last row closes the loop: every stage ticks.

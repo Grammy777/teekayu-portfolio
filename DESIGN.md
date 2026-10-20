@@ -27,9 +27,9 @@ colors:
   st-spec: "#7a3fc8"
   st-spec-tint: "#f0e8fb"
   st-spec-ink: "#4e2290"
-  st-build: "#0c7a5e"
-  st-build-tint: "#ddf3ec"
-  st-build-ink: "#0a5c47"
+  st-design: "#0c7a5e"
+  st-design-tint: "#ddf3ec"
+  st-design-ink: "#0a5c47"
   st-test: "#b04e0c"
   st-test-tint: "#fbe9dc"
   st-test-ink: "#8a3a07"
@@ -40,6 +40,11 @@ typography:
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.01em"
+  display-compact:
+    fontFamily: "Anuphan, system-ui, -apple-system, Segoe UI, sans-serif"
+    fontSize: "2.5rem"
+    fontWeight: 700
+    lineHeight: 1.15
   display-contact:
     fontFamily: "Anuphan, system-ui, -apple-system, Segoe UI, sans-serif"
     fontSize: "clamp(1.15rem, 4.6vw, 2rem)"
@@ -293,5 +298,7 @@ Inline emphasis for the two or three phrases that define the person (the role ti
 ## Colour roles (colorize pass, Oct 2026)
 
 - **Cover:** the intro is a dark cover (`cover`), a full-height column on desktop and a full-bleed band plus the top bar on mobile. Text on it uses `cover-fg` / `cover-fg-2` / `cover-fg-3`; the role words sit on solid lime blocks, and the primary email button turns lime on the cover.
-- **Stage hues:** each stage of work owns one hue (Requirement blue, Spec violet, Build green, Test orange). The pipeline dot, the pipeline fill and the row's stage chip share it: tint chip with ink-on-tint text at rest, solid chip with white text on the current row. The stage name is always written, so colour is never the only cue.
+- **Stage hues:** each stage of work owns one hue (Requirement blue, Spec violet, Design green, Test orange). The pipeline dot, the pipeline fill and the row's stage chip share it: tint chip with ink-on-tint text at rest, solid chip with white text on the current row. The stage name is always written, so colour is never the only cue.
+- **Cover on short desktops:** at window heights up to 900px the name drops to `display-compact` and spacing tightens so the whole cover fits; the column scrolls on its own only as a last resort.
+- **Email fallback:** under the cover's email button the address is shown as text with a small copy button, for readers whose browser has no mail app.
 - **Contact field:** Contact is the one lime field on the page, because it is the goal. Inside it, links and the copy button switch to ink.

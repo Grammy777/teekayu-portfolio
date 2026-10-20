@@ -24,7 +24,7 @@
   /* one hue per stage of work: solid / tint / ink-on-tint */
   --st-req:#2f5fd0;  --st-req-t:#e6edfb;  --st-req-i:#1d3f94;
   --st-spec:#7a3fc8; --st-spec-t:#f0e8fb; --st-spec-i:#4e2290;
-  --st-build:#0c7a5e;--st-build-t:#ddf3ec;--st-build-i:#0a5c47;
+  --st-design:#0c7a5e;--st-design-t:#ddf3ec;--st-design-i:#0a5c47;
   --st-test:#b04e0c; --st-test-t:#fbe9dc; --st-test-i:#8a3a07;
   --focus:#15171a;
   --radius:10px;
@@ -172,7 +172,6 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 .skill-row dt{font-weight:700;font-size:.9375rem}
 .skill-list{display:flex;flex-wrap:wrap;gap:6px 18px}
 .skill-list li{position:relative}
-.skill-row:first-child .skill-list li{font-weight:600}
 
 /* ---------- about + certs ---------- */
 .about{max-width:62ch}
@@ -230,7 +229,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .topbar{display:none}
   .shell{display:grid;grid-template-columns:minmax(320px,5fr) 7fr;gap:72px}
   .intro{position:sticky;top:0;height:100vh;height:100dvh}
-  .intro-inner{height:100%;display:flex;flex-direction:column;padding:88px 0 40px;border-bottom:0}
+  .intro-inner{height:100%;display:flex;flex-direction:column;padding:88px 0 24px;border-bottom:0}
   .nav{display:block;margin-top:44px}
   .nav a{
     display:flex;align-items:center;gap:14px;padding:7px 0;text-decoration:none;
@@ -251,14 +250,17 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .pipe-wrap{position:static}
 }
 
-@media (min-width:1024px) and (max-height:820px){
-  .intro-inner{padding:40px 0 28px}
+@media (min-width:1024px) and (max-height:900px){
+  .intro-inner{padding:32px 8px 14px}
   .thesis{margin-top:14px}
   .avail{margin-top:12px}
   .actions{margin-top:18px}
-  .nav{margin-top:24px}
+  .nav{margin-top:18px}
   .nav a{padding:4px 0}
   .lang-side{margin-top:24px}
+  .name{font-size:2.5rem}
+  .role{margin-top:6px}
+  .where{margin-top:4px}
 }
 @media (min-width:1024px) and (max-height:660px){
   .intro{position:static;height:auto;align-self:start}
@@ -291,19 +293,19 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 /* Stage hues: the pipeline and each row's chip share one colour per stage. */
 .step[data-step="req"]{--c:var(--st-req)}
 .step[data-step="spec"]{--c:var(--st-spec)}
-.step[data-step="build"]{--c:var(--st-build)}
+.step[data-step="design"]{--c:var(--st-design)}
 .step[data-step="test"]{--c:var(--st-test)}
 .step.done .step-dot{background:var(--c);border-color:var(--c)}
 .step.now .step-dot{background:var(--c);border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent)}
 .step.now .step-name{color:var(--c);text-decoration-color:var(--c)}
 .pipe[data-stage="req"]{--cur:var(--st-req)}
 .pipe[data-stage="spec"]{--cur:var(--st-spec)}
-.pipe[data-stage="build"]{--cur:var(--st-build)}
+.pipe[data-stage="design"]{--cur:var(--st-design)}
 .pipe[data-stage="test"]{--cur:var(--st-test)}
 .pipe::after{background:var(--cur,var(--ink))}
 .work[data-stage="req"]{--c:var(--st-req);--t:var(--st-req-t);--i:var(--st-req-i)}
 .work[data-stage="spec"]{--c:var(--st-spec);--t:var(--st-spec-t);--i:var(--st-spec-i)}
-.work[data-stage="build"]{--c:var(--st-build);--t:var(--st-build-t);--i:var(--st-build-i)}
+.work[data-stage="design"]{--c:var(--st-design);--t:var(--st-design-t);--i:var(--st-design-i)}
 .work[data-stage="test"]{--c:var(--st-test);--t:var(--st-test-t);--i:var(--st-test-i)}
 .work-stage span{background:var(--t);border-color:var(--t);color:var(--i)}
 .work.is-current .work-stage span{background:var(--c);border-color:var(--c);color:#fff}
@@ -321,6 +323,9 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 
 @media (min-width:1024px){
   .intro{position:sticky;margin:0;padding:0 56px 0 0}
+  /* Safety net: if a very short window still cannot fit the column, it scrolls
+     on its own instead of clipping. Side padding keeps focus rings unclipped. */
+  .intro-inner{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--cover-rule) transparent;margin:0 -8px;padding-left:8px;padding-right:8px}
   .intro::before{content:"";position:absolute;top:0;bottom:0;right:0;left:-100vw;background:var(--cover);z-index:-1}
   .intro .nav a{color:var(--cover-fg-3)}
   .intro .nav a:hover,.intro .nav a[aria-current="true"]{color:var(--cover-fg)}
@@ -353,8 +358,20 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 .copy-btn.is-copied .ico-check{display:block}
 .contact .copy-btn.is-copied{background:var(--ink);color:var(--mark)}
 
+
+/* ================= POLISH 2 ================= */
+.mail-line{margin-top:12px;display:flex;align-items:center;gap:6px;font-size:.875rem;color:var(--cover-fg-2);overflow-wrap:anywhere}
+.mail-text{user-select:all}
+.copy-mini{min-height:44px;min-width:44px;padding:0;justify-content:center;border-color:transparent;color:var(--cover-fg-2)}
+.copy-mini:hover{border-color:var(--cover-rule);background:transparent;color:var(--cover-fg)}
+.copy-mini.is-copied{color:var(--cover-ok);background:transparent}
+.intro .copy-mini:focus-visible{outline-color:var(--cover-fg)}
+.job-meta{margin-top:2px}
+.work-proj{font-size:.9375rem;font-weight:700;color:var(--ink)}
+.contact .mail-big{display:inline-flex;align-items:center;min-height:44px}
+
 @media print{
-  .topbar,.nav,.lang,.copy-btn,.copy-status,.btn-sm,.skip{display:none!important}
+  .topbar,.nav,.lang,.copy-btn,.mail-line .copy-btn,.copy-status,.btn-sm,.skip{display:none!important}
   .intro,.pipe-wrap{position:static!important;height:auto!important}
   .pipe-wrap{background:none}
   .pipe-wrap::after{display:none}

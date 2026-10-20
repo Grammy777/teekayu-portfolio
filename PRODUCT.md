@@ -17,7 +17,7 @@ Personal portfolio of Teekayu Prachayakul (ฑีฆายุ ปรัชญก
 
 ## Positioning
 
-A developer who can also do business analysis: someone who sits with clients, gathers requirements and writes the SRS, then builds the backend. Real client work at Zenith Comp is the proof (requirement gathering with 5 user groups, a 69-FR SRS, backend in Go/PostgreSQL). Full Stack / Backend is the primary target; Cybersecurity is a secondary interest backed by certificates.
+A developer who can also do business analysis: someone who sits with clients, gathers requirements, writes the SRS, designs the screens and tests the system with the client. Real client work at Zenith Comp is the proof (requirement gathering with 5 user groups, a 69-FR SRS, screen design, UAT on M-NSC); NeoFit is the build proof (real-time AR try-on with MediaPipe Hands and Three.js). Targets per the résumé: Full Stack Developer or Cybersecurity.
 
 ## Operating Context
 
@@ -28,6 +28,7 @@ A developer who can also do business analysis: someone who sits with clients, ga
 ## Capabilities and Constraints
 
 - Single static page (`index.html`), currently plain HTML/CSS/JS with no build step. (The owner did not mark "no framework" as binding.)
+- The résumé (PDF, Oct 2026) is the source of truth for every claim; the owner chose not to publish the PDF itself because it carries date of birth and home address.
 - Hosted on GitHub Pages: static only, and file paths are case-sensitive.
 - Bilingual Thai/English: every piece of copy lives in both languages, with a language toggle; Thai is the default.
 - Client work (Behn Meyer TMS / Shipping Hub, M-NSC, Ministry of Social Development and Human Security budget system) is shown as **text only**: no screenshots or real documents unless the owner gets company approval.
@@ -50,6 +51,6 @@ A developer who can also do business analysis: someone who sits with clients, ga
 
 1. Recruiter-first: role, current experience and contact are readable within the first screen and a short scroll, on a phone.
 2. Proof over claims: every skill points to a project, client engagement or certificate that backs it.
-3. Show both halves: the BA work (requirements, SRS, BPMN) and the dev work (backend, stack) appear together, as one story.
+3. Show both halves: the BA work (requirements, SRS, BPMN, screens, testing) and the dev work (projects, stack) appear together, as one story.
 4. Thai and English are equal: nothing exists in one language only.
 5. Confidential client work stays text-only.
