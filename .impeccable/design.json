@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T00:00:00Z",
+  "title": "Design System: Teekayu Prachayakul Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "oklch(97.2% 0.004 121.6)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252523",
+          "#414240",
+          "#61625f",
+          "#828380",
+          "#a4a5a3",
+          "#c8c9c7",
+          "#eeefec"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Shaded Paper",
+        "canonical": "oklch(94.4% 0.007 115.7)",
+        "tonalRamp": [
+          "#0b0c08",
+          "#252522",
+          "#42423e",
+          "#61625d",
+          "#82837e",
+          "#a5a6a1",
+          "#c9cac5",
+          "#eeefea"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "oklch(20.4% 0.007 258.4)",
+        "tonalRamp": [
+          "#090b0e",
+          "#232528",
+          "#404246",
+          "#5f6165",
+          "#808286",
+          "#a2a5a9",
+          "#c6c9ce",
+          "#eceff3"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "oklch(42.6% 0.015 259.8)",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c626a",
+          "#7d838b",
+          "#a0a5af",
+          "#c4cad3",
+          "#e9eff9"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Pencil Grey",
+        "canonical": "oklch(54.4% 0.015 262.3)",
+        "tonalRamp": [
+          "#080b12",
+          "#21252d",
+          "#3e424a",
+          "#5d616a",
+          "#7d838c",
+          "#a0a5af",
+          "#c4c9d3",
+          "#e9eff9"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(88.7% 0.010 125.7)",
+        "tonalRamp": [
+          "#0a0c08",
+          "#242621",
+          "#41433d",
+          "#60625c",
+          "#81837d",
+          "#a3a6a0",
+          "#c7cac3",
+          "#edf0e9"
+        ]
+      },
+      "mark": {
+        "role": "primary",
+        "displayName": "Acid-Lime Marker",
+        "canonical": "oklch(91.6% 0.199 119.6)",
+        "tonalRamp": [
+          "#090d00",
+          "#222901",
+          "#3d4803",
+          "#5a6a08",
+          "#798d0f",
+          "#99b31e",
+          "#bbda24",
+          "#e1ff70"
+        ]
+      },
+      "mark-soft": {
+        "role": "primary",
+        "displayName": "Pale Lime Wash",
+        "canonical": "oklch(96.0% 0.086 116.4)",
+        "tonalRamp": [
+          "#0a0d00",
+          "#242801",
+          "#404702",
+          "#5e672a",
+          "#7f894b",
+          "#a2ac6d",
+          "#c5d190",
+          "#ebf7b5"
+        ]
+      },
+      "ok": {
+        "role": "neutral",
+        "displayName": "Signal Green",
+        "canonical": "oklch(52.9% 0.106 154.4)",
+        "tonalRamp": [
+          "#001005",
+          "#022e16",
+          "#074f2b",
+          "#227245",
+          "#489565",
+          "#6cb987",
+          "#90deaa",
+          "#c6ffd7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The person's name in the intro only; English tightens tracking to -0.025em."
+      },
+      "display-contact": {
+        "displayName": "Display Contact",
+        "purpose": "The contact email, drawn with the marker band; breaks anywhere."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names and the internship role line."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "The one-line thesis in the intro, max 34ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text, Thai and English; 60-62ch measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Stack lines, meta lines, step names, nav."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Stage chips and pipeline sub-labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "current-step-ring",
+        "value": "0 0 0 4px var(--mark-soft)",
+        "purpose": "Crisp, unblurred ring on the active pipeline dot only. The system is otherwise shadowless."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "0.2s ease",
+        "purpose": "Button fill, link underline, language switch, nav colour, arrow nudge."
+      },
+      {
+        "name": "highlight",
+        "value": "0.3s ease",
+        "purpose": "Stage chip fill, step dot state, marker band growth on the contact email."
+      },
+      {
+        "name": "nav-dash",
+        "value": "0.35s cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Active nav dash growing from 28px to 64px."
+      },
+      {
+        "name": "pipeline-fill",
+        "value": "0.12s linear",
+        "purpose": "Ink fill line tracking scroll position via the --p custom property."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0s",
+        "purpose": "All transitions and animations zeroed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-max",
+        "value": "639px"
+      },
+      {
+        "name": "tablet",
+        "value": "640px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "desktop-short",
+        "value": "max-height 720px (sidebar stops sticking)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single solid action: email. Graphite pill with a leading stroke icon.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2 4h12v8H2zM2 4l6 5 6-5\"/></svg><span>Email me</span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--ink,#15171a);color:var(--paper,#f5f6f3);font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-weight:600;font-size:1.0625rem;text-decoration:none;border-radius:999px;transition:background-color .2s ease,transform .2s ease}.ds-btn:hover{background:#2b2f35}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--ink,#15171a);outline-offset:3px}.ds-ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Text link with a trailing up-right arrow; the only secondary action style.",
+      "html": "<a class=\"ds-arrow\" href=\"#\"><span>Open the live site</span><svg class=\"ds-ico\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M5 11 11 5M6 5h5v5\"/></svg></a>",
+      "css": ".ds-arrow{display:inline-flex;align-items:center;gap:6px;min-height:32px;font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-weight:600;color:var(--ink,#15171a);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--ink-3,#6b7079)}.ds-arrow:hover{text-decoration-color:var(--ink,#15171a);text-decoration-thickness:2px}.ds-arrow:focus-visible{outline:2px solid var(--ink,#15171a);outline-offset:3px;border-radius:4px}.ds-arrow .ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}.ds-arrow:hover .ds-ico{transform:translate(2px,-2px)}"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "chip",
+      "refersTo": "lang-switch",
+      "description": "Segmented pill toggling Thai and English; active option is a graphite pill.",
+      "html": "<div class=\"ds-lang\" role=\"group\" aria-label=\"Language\"><button aria-pressed=\"true\">ไทย</button><button aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-lang{display:inline-flex;border:1px solid var(--rule,#d8dbd4);border-radius:999px;padding:3px;background:var(--paper,#f5f6f3)}.ds-lang button{font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-size:.8125rem;font-weight:600;line-height:1;border:0;background:transparent;color:var(--ink-2,#4a4f57);padding:8px 13px;border-radius:999px;cursor:pointer;min-height:32px;transition:background-color .2s ease,color .2s ease}.ds-lang button[aria-pressed=\"true\"]{background:var(--ink,#15171a);color:var(--paper,#f5f6f3)}.ds-lang button:not([aria-pressed=\"true\"]):hover{color:var(--ink,#15171a);background:var(--paper-2,#ecede8)}.ds-lang button:focus-visible{outline:2px solid var(--ink,#15171a);outline-offset:-5px}.ds-lang button[aria-pressed=\"true\"]:focus-visible{outline-color:var(--paper,#f5f6f3)}"
+    },
+    {
+      "name": "Stage Chip",
+      "kind": "chip",
+      "refersTo": "stage-chip",
+      "description": "Outline pill naming a work row's stage; fills lime on the row being read.",
+      "html": "<span class=\"ds-chip\">Spec</span> <span class=\"ds-chip is-current\">Build</span>",
+      "css": ".ds-chip{display:inline-block;font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.02em;padding:3px 10px;border-radius:999px;border:1px solid var(--rule,#d8dbd4);color:var(--ink-2,#4a4f57);transition:background-color .3s ease,border-color .3s ease,color .3s ease}.ds-chip.is-current{background:var(--mark,#d4f53c);border-color:var(--mark,#d4f53c);color:var(--ink,#15171a)}"
+    },
+    {
+      "name": "Sidebar Nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Desktop sidebar nav; a leading dash grows and darkens on the section in view.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"true\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Skills</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav a{display:flex;align-items:center;gap:14px;padding:7px 0;text-decoration:none;font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;color:var(--ink-3,#6b7079);font-weight:600;font-size:.9375rem;transition:color .2s ease}.ds-nav a::before{content:\"\";width:28px;height:1px;background:currentColor;transition:width .35s cubic-bezier(.16,1,.3,1),background-color .2s ease}.ds-nav a:hover,.ds-nav a[aria-current=\"true\"]{color:var(--ink,#15171a)}.ds-nav a[aria-current=\"true\"]::before{width:64px;height:2px;background:var(--ink,#15171a)}.ds-nav a:focus-visible{outline:2px solid var(--ink,#15171a);outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Pipeline",
+      "kind": "custom",
+      "refersTo": "pipeline",
+      "description": "Signature four-stage track; ink fill follows reading position, current step gets the lime dot and ring.",
+      "html": "<ol class=\"ds-pipe\" style=\"--p:.55\"><li class=\"ds-step done\"><span class=\"ds-dot\"></span><span class=\"ds-sn\">Requirement</span><span class=\"ds-ss\">gather needs</span></li><li class=\"ds-step done\"><span class=\"ds-dot\"></span><span class=\"ds-sn\">Spec</span><span class=\"ds-ss\">SRS · screens</span></li><li class=\"ds-step now\"><span class=\"ds-dot\"></span><span class=\"ds-sn\">Build</span><span class=\"ds-ss\">backend · integrations</span></li><li class=\"ds-step\"><span class=\"ds-dot\"></span><span class=\"ds-sn\">Test</span><span class=\"ds-ss\">test with client</span></li></ol>",
+      "css": ".ds-pipe{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0;padding:12px 0;list-style:none;font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;color:var(--ink,#15171a)}.ds-pipe::before,.ds-pipe::after{content:\"\";position:absolute;left:6px;right:calc(25% - 6px);top:18px;height:2px;border-radius:2px}.ds-pipe::before{background:var(--rule,#d8dbd4)}.ds-pipe::after{background:var(--ink,#15171a);right:auto;width:calc((100% - 25% - 6px) * var(--p));transition:width .12s linear}.ds-step{position:relative;z-index:1;display:flex;flex-direction:column;min-width:0}.ds-dot{width:14px;height:14px;border-radius:50%;background:var(--paper,#f5f6f3);border:2px solid var(--rule,#d8dbd4);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease}.ds-sn{margin-top:8px;font-size:.875rem;font-weight:700;line-height:1.2}.ds-ss{font-size:.75rem;color:var(--ink-3,#6b7079);line-height:1.35;margin-top:2px}.ds-step.done .ds-dot{background:var(--ink,#15171a);border-color:var(--ink,#15171a)}.ds-step.now .ds-dot{background:var(--mark,#d4f53c);border-color:var(--ink,#15171a);box-shadow:0 0 0 4px var(--mark-soft,#eefab8)}.ds-step.now .ds-sn{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}"
+    },
+    {
+      "name": "Highlighter Mark",
+      "kind": "custom",
+      "refersTo": "mark",
+      "description": "Hard-stop lime band across the lower half of key words; grows on hover for the contact email.",
+      "html": "<p class=\"ds-role\"><mark class=\"ds-mark\">Backend Developer</mark> &amp; <mark class=\"ds-mark\">Business Analyst</mark></p><a class=\"ds-mail\" href=\"#\">teekayu.13579@gmail.com</a>",
+      "css": ".ds-role{font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-weight:600;font-size:1.3rem;color:var(--ink,#15171a);margin:0 0 16px}.ds-mark{background:linear-gradient(transparent 52%,var(--mark,#d4f53c) 52%,var(--mark,#d4f53c) 94%,transparent 94%);color:inherit;padding:0 .08em}.ds-mail{display:inline-block;font-family:\"Anuphan\", system-ui, -apple-system, \"Segoe UI\", sans-serif;font-weight:700;font-size:clamp(1.15rem,4.6vw,2rem);line-height:1.3;color:var(--ink,#15171a);text-decoration:none;word-break:break-all;background:linear-gradient(transparent 58%,var(--mark,#d4f53c) 58%,var(--mark,#d4f53c) 92%,transparent 92%);background-size:100% 100%;transition:background-size .3s ease}.ds-mail:hover{background-size:100% 160%}.ds-mail:focus-visible{outline:2px solid var(--ink,#15171a);outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Media Frame",
+      "kind": "card",
+      "refersTo": "media-frame",
+      "description": "The only bordered rectangle: a 10px clipped hairline frame for project screenshots.",
+      "html": "<figure class=\"ds-media\"><div class=\"ds-media-img\"></div></figure>",
+      "css": ".ds-media{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--rule,#d8dbd4);background:var(--paper-2,#ecede8);max-width:420px}.ds-media-img{aspect-ratio:900/431;background:linear-gradient(var(--paper-2,#ecede8),var(--paper-2,#ecede8))}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Marked-Up Spec",
+    "overview": "The page behaves like a requirements document someone has read carefully with a highlighter in hand. Cool off-white paper, near-black ink, hairline rules between rows, and exactly one loud colour: an acid-lime marker that lands on the few words and states that matter right now. Nothing floats, nothing glows, nothing is boxed into cards; structure comes from rules, columns and type weight.\n\nDensity is calm and editorial. Thai and Latin share one family (Anuphan) at generous line height, so both scripts sit in the same rhythm and Thai stacked vowels never collide. On desktop a sticky left column holds identity, navigation and the email action while content scrolls past on the right; on phones the same content stacks under a slim sticky bar that carries the language switch. The signature motion is a four-stage pipeline (Requirement, Spec, Build, Test) that fills in ink as the reader scrolls through the work it describes.\n\nThe system refuses the dark neon developer portfolio and the cream résumé: no dark ground, no glow, no gradient text, no warm parchment.",
+    "keyCharacteristics": [
+      "One cool-paper ground, one near-black ink, one acid-lime marker; greys are cool ink tints, not neutrals of their own.",
+      "Hairline rules (1px) are the only structural device; media frames are the only bordered rectangles.",
+      "Pills for things you press or that carry state; soft 10px corners for images; everything else square.",
+      "A single variable family (Anuphan, 100–700) for both scripts, weight doing the hierarchy work.",
+      "Motion is short, eased and tied to reading position; it disappears completely under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The One Marker Rule",
+        "body": "Lime appears only where the reader's attention should land now: at most the role line, the contact email, and the single current pipeline step and chip. If two things on screen are lime and neither is \"current\", one of them is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Same-Sheet Rule",
+        "body": "Sticky layers (top bar, pipeline bar, sidebar) use the paper colour plus a hairline, never a tint, blur or shadow. Depth is implied by the rule, not by material.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tall Line Rule",
+        "body": "Body copy keeps line-height at 1.7 or more. Thai above-and-below marks need the room; tightening body leading to Latin-only defaults breaks the Thai page first.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "No second typeface, no monospace for \"code-ness\", no system display face. Emphasis is weight, the marker, or an underline.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rows-Not-Cards Rule",
+        "body": "Collections (work, projects, skills, certificates) are rows divided by 1px hairlines, never grids of boxed cards.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Nothing lifts off the page. A new surface that \"needs\" a shadow needs a hairline instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the page on Cool Paper with Graphite Ink text and let hairline rules (1px Hairline) carry all structure.",
+      "**Do** reserve Acid-Lime Marker for the role line, the contact email and the single current pipeline state, per The One Marker Rule.",
+      "**Do** keep body line-height at 1.7–1.75 and measures at 60–62ch so Thai and English read in the same rhythm.",
+      "**Do** use pills (999px) for pressable or stateful controls and 10px corners only on image frames.",
+      "**Do** make every sticky layer paper plus a bottom hairline.",
+      "**Do** ship every string in both Thai and English from the same table, and keep 32px minimum hit areas on secondary controls and 48px on the primary button.",
+      "**Do** honour reduced motion by removing transitions, not by swapping in alternatives."
+    ],
+    "donts": [
+      "**Don't** add drop shadows, blurred glows or lifted cards; the only ring in the system is the current pipeline step's.",
+      "**Don't** fill text with gradients or use soft multi-stop gradients as decoration; gradients exist only as hard-stop marker bands and the one functional paper scrim.",
+      "**Don't** introduce a dark ground, neon accents or a second accent colour.",
+      "**Don't** box collections into card grids; use hairline-divided rows.",
+      "**Don't** add a second typeface, a monospace \"dev\" face or a system display face.",
+      "**Don't** set Pencil Grey text on Shaded Paper or use Hairline as a text colour."
+    ]
+  }
+}

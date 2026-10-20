@@ -1,0 +1,12 @@
+# Claude Code / Impeccable working files (not part of the site)
+.claude/
+.impeccable/config.local.json
+.impeccable/critique/
+
+# Backups and old assets no longer used by index.html
+index-backup-*.html
+Portfoilo.zip
+My_Img/
+Img_Pj_*/
+certificate/*.jpg
+certificate/*.png
