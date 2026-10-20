@@ -12,6 +12,27 @@ colors:
   mark: "#d4f53c"
   mark-soft: "#eefab8"
   ok: "#2f7d4f"
+  mark-hover: "#e2fa6e"
+  on-stage: "#ffffff"
+  cover: "#15171a"
+  cover-fg: "#f5f6f3"
+  cover-fg-2: "#b9bec5"
+  cover-fg-3: "#8e949c"
+  cover-rule: "#33373d"
+  cover-ok: "#5fd38a"
+  on-mark-2: "#2f3a12"
+  st-req: "#2f5fd0"
+  st-req-tint: "#e6edfb"
+  st-req-ink: "#1d3f94"
+  st-spec: "#7a3fc8"
+  st-spec-tint: "#f0e8fb"
+  st-spec-ink: "#4e2290"
+  st-build: "#0c7a5e"
+  st-build-tint: "#ddf3ec"
+  st-build-ink: "#0a5c47"
+  st-test: "#b04e0c"
+  st-test-tint: "#fbe9dc"
+  st-test-ink: "#8a3a07"
 typography:
   display:
     fontFamily: "Anuphan, system-ui, -apple-system, Segoe UI, sans-serif"
@@ -63,6 +84,8 @@ typography:
     letterSpacing: "0.02em"
 rounded:
   track: "2px"
+  mark: "3px"
+  panel: "16px"
   focus: "4px"
   sm: "8px"
   md: "10px"
@@ -266,3 +289,9 @@ Inline emphasis for the two or three phrases that define the person (the role ti
 - **Don't** box collections into card grids; use hairline-divided rows.
 - **Don't** add a second typeface, a monospace "dev" face or a system display face.
 - **Don't** set Pencil Grey text on Shaded Paper or use Hairline as a text colour.
+
+## Colour roles (colorize pass, Oct 2026)
+
+- **Cover:** the intro is a dark cover (`cover`), a full-height column on desktop and a full-bleed band plus the top bar on mobile. Text on it uses `cover-fg` / `cover-fg-2` / `cover-fg-3`; the role words sit on solid lime blocks, and the primary email button turns lime on the cover.
+- **Stage hues:** each stage of work owns one hue (Requirement blue, Spec violet, Build green, Test orange). The pipeline dot, the pipeline fill and the row's stage chip share it: tint chip with ink-on-tint text at rest, solid chip with white text on the current row. The stage name is always written, so colour is never the only cue.
+- **Contact field:** Contact is the one lime field on the page, because it is the goal. Inside it, links and the copy button switch to ink.

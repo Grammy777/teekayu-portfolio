@@ -19,10 +19,10 @@ PHONE_DISPLAY, PHONE_TEL = "062-594-4932", "+66625944932"
 
 T = {
   # document
-  "doc_title": ("ฑีฆายุ ปรัชญกุล · Backend Developer & Business Analyst",
-                "Teekayu Prachayakul · Backend Developer & Business Analyst"),
-  "doc_desc": ("พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Backend Developer & Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL",
-               "Portfolio of Teekayu Prachayakul, Backend Developer & Business Analyst at Zenith Comp: requirements, SRS documents and Go/PostgreSQL backends."),
+  "doc_title": ("ฑีฆายุ ปรัชญกุล · Frontend Developer & Business Analyst",
+                "Teekayu Prachayakul · Frontend Developer & Business Analyst"),
+  "doc_desc": ("พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Frontend Developer & Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL",
+               "Portfolio of Teekayu Prachayakul, Frontend Developer & Business Analyst at Zenith Comp: requirements, SRS documents and Go/PostgreSQL backends."),
   "skip": ("ข้ามไปที่เนื้อหา", "Skip to content"),
   "lang_label": ("ภาษา", "Language"),
   # intro
@@ -42,7 +42,7 @@ T = {
   "nav_contact": ("ติดต่อ", "Contact"),
   # experience
   "exp_h": ("ประสบการณ์", "Experience"),
-  "exp_role": ("Zenith Comp · ฝึกงานตำแหน่ง Backend Developer & BA", "Zenith Comp · Backend Developer & BA internship"),
+  "exp_role": ("Zenith Comp · ฝึกงานตำแหน่ง Frontend Developer & BA", "Zenith Comp · Frontend Developer & BA internship"),
   "exp_date": ("24 ส.ค. – 1 ธ.ค. 2569", "24 Aug – 1 Dec 2026"),
   "exp_lead": ("ผมทำครบทุกขั้นของงานระบบ ตั้งแต่เก็บ requirement จนถึงทดสอบกับลูกค้า ใน 3 โปรเจกต์ลูกค้าจริง",
                "Every stage of the work, from gathering requirements to testing with the client, across three client projects."),
@@ -254,7 +254,7 @@ page = f"""<!DOCTYPE html>
   <aside class="intro">
     <div class="intro-inner">
       <h1 class="name" data-i18n="name">{th("name")}</h1>
-      <p class="role"><mark>Backend Developer</mark> &amp; <mark>Business Analyst</mark></p>
+      <p class="role"><mark>Frontend Developer</mark> &amp; <mark>Business Analyst</mark></p>
       <p class="where" data-i18n="where">{th("where")}</p>
       <p class="thesis" data-i18n="thesis">{th("thesis")}</p>
       <p class="avail"><span class="avail-dot" aria-hidden="true"></span><span><span data-i18n="avail">{th("avail")}</span><br><span class="avail-date" data-i18n="avail_date">{th("avail_date")}</span></span></p>

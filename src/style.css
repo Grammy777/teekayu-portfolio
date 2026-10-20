@@ -14,13 +14,25 @@
   --mark:#d4f53c;
   --mark-soft:#eefab8;
   --ok:#2f7d4f;
+  /* dark cover (intro panel + mobile top bar) */
+  --cover:#15171a;
+  --cover-fg:#f5f6f3;
+  --cover-fg-2:#b9bec5;
+  --cover-fg-3:#8e949c;
+  --cover-rule:#33373d;
+  --cover-ok:#5fd38a;
+  /* one hue per stage of work: solid / tint / ink-on-tint */
+  --st-req:#2f5fd0;  --st-req-t:#e6edfb;  --st-req-i:#1d3f94;
+  --st-spec:#7a3fc8; --st-spec-t:#f0e8fb; --st-spec-i:#4e2290;
+  --st-build:#0c7a5e;--st-build-t:#ddf3ec;--st-build-i:#0a5c47;
+  --st-test:#b04e0c; --st-test-t:#fbe9dc; --st-test-i:#8a3a07;
   --focus:#15171a;
   --radius:10px;
   --gutter:clamp(20px,4vw,48px);
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;overflow-x:clip}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:"Anuphan",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -55,7 +67,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .lang button:focus-visible{outline:2px solid var(--ink);outline-offset:-5px}
 .lang button[aria-pressed="true"]:focus-visible{outline-color:var(--paper)}
-.lang button:not([aria-pressed="true"]):hover{color:var(--ink);background:var(--paper-2)}
+
 
 /* ---------- mobile top bar ---------- */
 .topbar{
@@ -252,6 +264,73 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .intro{position:static;height:auto;align-self:start}
 }
 
+
+/* ================= COLOR: cover panel, stage hues, contact field ================= */
+/* The intro is a dark cover: full-bleed band on mobile, a full-height column on desktop. */
+.topbar{background:var(--cover);color:var(--cover-fg);border-bottom-color:var(--cover-rule)}
+.intro{position:relative;background:var(--cover);color:var(--cover-fg);margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter)}
+.intro-inner{border-bottom:0;padding-bottom:44px}
+.intro .where,.intro .avail{color:var(--cover-fg-2)}
+.intro .avail-date{color:var(--cover-fg)}
+.intro .avail-dot{background:var(--cover-ok)}
+.intro mark{background:var(--mark);color:var(--ink);padding:0 .2em;border-radius:3px;white-space:nowrap}
+.intro .role{line-height:1.7}
+.intro .btn,.topbar .btn{background:var(--mark);color:var(--ink)}
+.intro .btn:hover,.topbar .btn:hover{background:#e2fa6e}
+.intro .text-link{text-decoration-color:var(--cover-fg-3)}
+.intro .text-link:hover{text-decoration-color:var(--cover-fg)}
+.intro :focus-visible,.topbar :focus-visible{outline-color:var(--cover-fg)}
+.topbar .lang,.intro .lang{background:transparent;border-color:var(--cover-rule)}
+.topbar .lang button,.intro .lang button{color:var(--cover-fg-2)}
+.topbar .lang button[aria-pressed="true"],.intro .lang button[aria-pressed="true"]{background:var(--cover-fg);color:var(--ink)}
+.topbar .lang button:not([aria-pressed="true"]):hover,.intro .lang button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px var(--cover-fg-3)}
+.topbar .lang button[aria-pressed="true"]:focus-visible,.intro .lang button[aria-pressed="true"]:focus-visible{outline-color:var(--ink)}
+.topbar .lang button:not([aria-pressed="true"]):focus-visible,.intro .lang button:not([aria-pressed="true"]):focus-visible{outline-color:var(--cover-fg)}
+.intro ::selection{background:var(--mark);color:var(--ink)}
+
+/* Stage hues: the pipeline and each row's chip share one colour per stage. */
+.step[data-step="req"]{--c:var(--st-req)}
+.step[data-step="spec"]{--c:var(--st-spec)}
+.step[data-step="build"]{--c:var(--st-build)}
+.step[data-step="test"]{--c:var(--st-test)}
+.step.done .step-dot{background:var(--c);border-color:var(--c)}
+.step.now .step-dot{background:var(--c);border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent)}
+.step.now .step-name{color:var(--c);text-decoration-color:var(--c)}
+.pipe[data-stage="req"]{--cur:var(--st-req)}
+.pipe[data-stage="spec"]{--cur:var(--st-spec)}
+.pipe[data-stage="build"]{--cur:var(--st-build)}
+.pipe[data-stage="test"]{--cur:var(--st-test)}
+.pipe::after{background:var(--cur,var(--ink))}
+.work[data-stage="req"]{--c:var(--st-req);--t:var(--st-req-t);--i:var(--st-req-i)}
+.work[data-stage="spec"]{--c:var(--st-spec);--t:var(--st-spec-t);--i:var(--st-spec-i)}
+.work[data-stage="build"]{--c:var(--st-build);--t:var(--st-build-t);--i:var(--st-build-i)}
+.work[data-stage="test"]{--c:var(--st-test);--t:var(--st-test-t);--i:var(--st-test-i)}
+.work-stage span{background:var(--t);border-color:var(--t);color:var(--i)}
+.work.is-current .work-stage span{background:var(--c);border-color:var(--c);color:#fff}
+
+/* Contact is the one lime field on the page: the goal gets the loudest colour. */
+.contact{background:var(--mark);margin-top:64px;padding:40px var(--gutter) 36px;margin-left:calc(var(--gutter) * -1);margin-right:calc(var(--gutter) * -1)}
+.contact .lead,.contact .contact-meta{color:#2f3a12}
+.contact .mail-big{background:none;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.contact .mail-big:hover{text-decoration-thickness:4px}
+.contact .copy-btn{border-color:var(--ink);background:transparent}
+.contact .copy-btn:hover{background:var(--ink);color:var(--mark)}
+.contact .copy-status{color:var(--ink)}
+.contact .text-link{text-decoration-color:var(--ink)}
+.contact ::selection{background:var(--ink);color:var(--mark)}
+
+@media (min-width:1024px){
+  .intro{position:sticky;margin:0;padding:0 56px 0 0}
+  .intro::before{content:"";position:absolute;top:0;bottom:0;right:0;left:-100vw;background:var(--cover);z-index:-1}
+  .intro .nav a{color:var(--cover-fg-3)}
+  .intro .nav a:hover,.intro .nav a[aria-current="true"]{color:var(--cover-fg)}
+  .intro .nav a[aria-current="true"]::before{background:var(--mark)}
+  .contact{margin-left:0;margin-right:0;padding:48px 48px 40px;border-radius:16px}
+}
+@media (min-width:1024px) and (max-height:660px){
+  .intro{position:relative}
+}
+
 @media print{
   .topbar,.nav,.lang,.copy-btn,.copy-status,.btn-sm,.skip{display:none!important}
   .intro,.pipe-wrap{position:static!important;height:auto!important}
@@ -259,6 +338,9 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .pipe-wrap::after{display:none}
   .shell{display:block}
   body{background:none;font-size:11pt}
+  .intro,.contact{background:none!important;color:var(--ink)!important}
+  .intro::before{display:none}
+  .intro *{color:var(--ink)!important}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;color:var(--ink-2)}
   .work,.proj,.cert{break-inside:avoid}
 }

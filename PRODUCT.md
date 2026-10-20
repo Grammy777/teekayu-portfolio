@@ -13,7 +13,7 @@ web
 
 ## Product Purpose
 
-Personal portfolio of Teekayu Prachayakul (ฑีฆายุ ปรัชญกุล), a Computer Science graduate of Bangkok University (2022–2026), currently a Backend Developer & Business Analyst intern at Zenith Comp (24 Aug – 1 Dec 2026). Success = a recruiter or tech lead reaches out for an interview for a developer role.
+Personal portfolio of Teekayu Prachayakul (ฑีฆายุ ปรัชญกุล), a Computer Science graduate of Bangkok University (2022–2026), currently a Frontend Developer & Business Analyst intern at Zenith Comp (24 Aug – 1 Dec 2026). Success = a recruiter or tech lead reaches out for an interview for a developer role.
 
 ## Positioning
 

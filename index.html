@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ฑีฆายุ ปรัชญกุล · Backend Developer &amp; Business Analyst</title>
-<meta name="description" content="พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Backend Developer &amp; Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL">
-<meta property="og:title" content="ฑีฆายุ ปรัชญกุล · Backend Developer &amp; Business Analyst">
-<meta property="og:description" content="พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Backend Developer &amp; Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL">
+<title>ฑีฆายุ ปรัชญกุล · Frontend Developer &amp; Business Analyst</title>
+<meta name="description" content="พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Frontend Developer &amp; Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL">
+<meta property="og:title" content="ฑีฆายุ ปรัชญกุล · Frontend Developer &amp; Business Analyst">
+<meta property="og:description" content="พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Frontend Developer &amp; Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://grammy777.github.io/teekayu-portfolio/img/neofit.webp">
 <meta property="og:url" content="https://grammy777.github.io/teekayu-portfolio/">
@@ -31,13 +31,25 @@
   --mark:#d4f53c;
   --mark-soft:#eefab8;
   --ok:#2f7d4f;
+  /* dark cover (intro panel + mobile top bar) */
+  --cover:#15171a;
+  --cover-fg:#f5f6f3;
+  --cover-fg-2:#b9bec5;
+  --cover-fg-3:#8e949c;
+  --cover-rule:#33373d;
+  --cover-ok:#5fd38a;
+  /* one hue per stage of work: solid / tint / ink-on-tint */
+  --st-req:#2f5fd0;  --st-req-t:#e6edfb;  --st-req-i:#1d3f94;
+  --st-spec:#7a3fc8; --st-spec-t:#f0e8fb; --st-spec-i:#4e2290;
+  --st-build:#0c7a5e;--st-build-t:#ddf3ec;--st-build-i:#0a5c47;
+  --st-test:#b04e0c; --st-test-t:#fbe9dc; --st-test-i:#8a3a07;
   --focus:#15171a;
   --radius:10px;
   --gutter:clamp(20px,4vw,48px);
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;overflow-x:clip}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:"Anuphan",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -72,7 +84,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .lang button:focus-visible{outline:2px solid var(--ink);outline-offset:-5px}
 .lang button[aria-pressed="true"]:focus-visible{outline-color:var(--paper)}
-.lang button:not([aria-pressed="true"]):hover{color:var(--ink);background:var(--paper-2)}
+
 
 /* ---------- mobile top bar ---------- */
 .topbar{
@@ -269,6 +281,73 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .intro{position:static;height:auto;align-self:start}
 }
 
+
+/* ================= COLOR: cover panel, stage hues, contact field ================= */
+/* The intro is a dark cover: full-bleed band on mobile, a full-height column on desktop. */
+.topbar{background:var(--cover);color:var(--cover-fg);border-bottom-color:var(--cover-rule)}
+.intro{position:relative;background:var(--cover);color:var(--cover-fg);margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter)}
+.intro-inner{border-bottom:0;padding-bottom:44px}
+.intro .where,.intro .avail{color:var(--cover-fg-2)}
+.intro .avail-date{color:var(--cover-fg)}
+.intro .avail-dot{background:var(--cover-ok)}
+.intro mark{background:var(--mark);color:var(--ink);padding:0 .2em;border-radius:3px;white-space:nowrap}
+.intro .role{line-height:1.7}
+.intro .btn,.topbar .btn{background:var(--mark);color:var(--ink)}
+.intro .btn:hover,.topbar .btn:hover{background:#e2fa6e}
+.intro .text-link{text-decoration-color:var(--cover-fg-3)}
+.intro .text-link:hover{text-decoration-color:var(--cover-fg)}
+.intro :focus-visible,.topbar :focus-visible{outline-color:var(--cover-fg)}
+.topbar .lang,.intro .lang{background:transparent;border-color:var(--cover-rule)}
+.topbar .lang button,.intro .lang button{color:var(--cover-fg-2)}
+.topbar .lang button[aria-pressed="true"],.intro .lang button[aria-pressed="true"]{background:var(--cover-fg);color:var(--ink)}
+.topbar .lang button:not([aria-pressed="true"]):hover,.intro .lang button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px var(--cover-fg-3)}
+.topbar .lang button[aria-pressed="true"]:focus-visible,.intro .lang button[aria-pressed="true"]:focus-visible{outline-color:var(--ink)}
+.topbar .lang button:not([aria-pressed="true"]):focus-visible,.intro .lang button:not([aria-pressed="true"]):focus-visible{outline-color:var(--cover-fg)}
+.intro ::selection{background:var(--mark);color:var(--ink)}
+
+/* Stage hues: the pipeline and each row's chip share one colour per stage. */
+.step[data-step="req"]{--c:var(--st-req)}
+.step[data-step="spec"]{--c:var(--st-spec)}
+.step[data-step="build"]{--c:var(--st-build)}
+.step[data-step="test"]{--c:var(--st-test)}
+.step.done .step-dot{background:var(--c);border-color:var(--c)}
+.step.now .step-dot{background:var(--c);border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent)}
+.step.now .step-name{color:var(--c);text-decoration-color:var(--c)}
+.pipe[data-stage="req"]{--cur:var(--st-req)}
+.pipe[data-stage="spec"]{--cur:var(--st-spec)}
+.pipe[data-stage="build"]{--cur:var(--st-build)}
+.pipe[data-stage="test"]{--cur:var(--st-test)}
+.pipe::after{background:var(--cur,var(--ink))}
+.work[data-stage="req"]{--c:var(--st-req);--t:var(--st-req-t);--i:var(--st-req-i)}
+.work[data-stage="spec"]{--c:var(--st-spec);--t:var(--st-spec-t);--i:var(--st-spec-i)}
+.work[data-stage="build"]{--c:var(--st-build);--t:var(--st-build-t);--i:var(--st-build-i)}
+.work[data-stage="test"]{--c:var(--st-test);--t:var(--st-test-t);--i:var(--st-test-i)}
+.work-stage span{background:var(--t);border-color:var(--t);color:var(--i)}
+.work.is-current .work-stage span{background:var(--c);border-color:var(--c);color:#fff}
+
+/* Contact is the one lime field on the page: the goal gets the loudest colour. */
+.contact{background:var(--mark);margin-top:64px;padding:40px var(--gutter) 36px;margin-left:calc(var(--gutter) * -1);margin-right:calc(var(--gutter) * -1)}
+.contact .lead,.contact .contact-meta{color:#2f3a12}
+.contact .mail-big{background:none;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.contact .mail-big:hover{text-decoration-thickness:4px}
+.contact .copy-btn{border-color:var(--ink);background:transparent}
+.contact .copy-btn:hover{background:var(--ink);color:var(--mark)}
+.contact .copy-status{color:var(--ink)}
+.contact .text-link{text-decoration-color:var(--ink)}
+.contact ::selection{background:var(--ink);color:var(--mark)}
+
+@media (min-width:1024px){
+  .intro{position:sticky;margin:0;padding:0 56px 0 0}
+  .intro::before{content:"";position:absolute;top:0;bottom:0;right:0;left:-100vw;background:var(--cover);z-index:-1}
+  .intro .nav a{color:var(--cover-fg-3)}
+  .intro .nav a:hover,.intro .nav a[aria-current="true"]{color:var(--cover-fg)}
+  .intro .nav a[aria-current="true"]::before{background:var(--mark)}
+  .contact{margin-left:0;margin-right:0;padding:48px 48px 40px;border-radius:16px}
+}
+@media (min-width:1024px) and (max-height:660px){
+  .intro{position:relative}
+}
+
 @media print{
   .topbar,.nav,.lang,.copy-btn,.copy-status,.btn-sm,.skip{display:none!important}
   .intro,.pipe-wrap{position:static!important;height:auto!important}
@@ -276,6 +355,9 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   .pipe-wrap::after{display:none}
   .shell{display:block}
   body{background:none;font-size:11pt}
+  .intro,.contact{background:none!important;color:var(--ink)!important}
+  .intro::before{display:none}
+  .intro *{color:var(--ink)!important}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;color:var(--ink-2)}
   .work,.proj,.cert{break-inside:avoid}
 }
@@ -305,7 +387,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
   <aside class="intro">
     <div class="intro-inner">
       <h1 class="name" data-i18n="name">ฑีฆายุ ปรัชญกุล</h1>
-      <p class="role"><mark>Backend Developer</mark> &amp; <mark>Business Analyst</mark></p>
+      <p class="role"><mark>Frontend Developer</mark> &amp; <mark>Business Analyst</mark></p>
       <p class="where" data-i18n="where">ฝึกงานที่ Zenith Comp · 24 ส.ค. – 1 ธ.ค. 2569</p>
       <p class="thesis" data-i18n="thesis">ผมคุยกับลูกค้าจนได้ความต้องการที่ชัด เขียนเป็น SRS แล้วสร้าง backend ให้ใช้งานได้จริง</p>
       <p class="avail"><span class="avail-dot" aria-hidden="true"></span><span><span data-i18n="avail">เปิดรับงานประจำสาย Backend / Full Stack</span><br><span class="avail-date" data-i18n="avail_date">เ⁠ร⁠ิ⁠่⁠ม⁠ง⁠า⁠นได้ ธ.ค. 2569</span></span></p>
@@ -333,7 +415,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
     <section id="experience" class="sec" aria-labelledby="exp-h">
       <h2 id="exp-h" data-i18n="exp_h">ประสบการณ์</h2>
       <div class="job">
-        <p class="job-role" data-i18n="exp_role">Zenith Comp · ฝึกงานตำแหน่ง Backend Developer &amp; BA</p>
+        <p class="job-role" data-i18n="exp_role">Zenith Comp · ฝึกงานตำแหน่ง Frontend Developer &amp; BA</p>
         <p class="lead" data-i18n="exp_lead">ผมทำครบทุกขั้นของงานระบบ ตั้งแต่เก็บ requirement จนถึงทดสอบกับลูกค้า ใน 3 โ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ลูกค้าจริง</p>
       </div>
       <div class="pipe-wrap">
@@ -440,7 +522,7 @@ mark{background:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 94%,
 
 <script>
 const LINKS = {"github": "", "linkedin": ""};
-const I18N = {"doc_title": {"th": "ฑีฆายุ ปรัชญกุล · Backend Developer & Business Analyst", "en": "Teekayu Prachayakul · Backend Developer & Business Analyst"}, "doc_desc": {"th": "พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Backend Developer & Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL", "en": "Portfolio of Teekayu Prachayakul, Backend Developer & Business Analyst at Zenith Comp: requirements, SRS documents and Go/PostgreSQL backends."}, "skip": {"th": "ข้ามไปที่เนื้อหา", "en": "Skip to content"}, "lang_label": {"th": "ภาษา", "en": "Language"}, "name": {"th": "ฑีฆายุ ปรัชญกุล", "en": "Teekayu Prachayakul"}, "name_short": {"th": "ฑีฆายุ ป.", "en": "Teekayu P."}, "where": {"th": "ฝึกงานที่ Zenith Comp · 24 ส.ค. – 1 ธ.ค. 2569", "en": "Intern at Zenith Comp · 24 Aug – 1 Dec 2026"}, "thesis": {"th": "ผมคุยกับลูกค้าจนได้ความต้องการที่ชัด เขียนเป็น SRS แล้วสร้าง backend ให้ใช้งานได้จริง", "en": "I turn client conversations into clear specs, and specs into working backends."}, "avail": {"th": "เปิดรับงานประจำสาย Backend / Full Stack", "en": "Open to full-time Backend / Full Stack roles"}, "avail_date": {"th": "เ⁠ร⁠ิ⁠่⁠ม⁠ง⁠า⁠นได้ ธ.ค. 2569", "en": "Available from Dec 2026"}, "cta_email": {"th": "ส่งอีเมลหาผม", "en": "Email me"}, "nav_label": {"th": "เมนูหลัก", "en": "Main"}, "nav_exp": {"th": "ประสบการณ์", "en": "Experience"}, "nav_proj": {"th": "ผลงาน", "en": "Projects"}, "nav_skills": {"th": "ทักษะ", "en": "Skills"}, "nav_about": {"th": "เกี่ยวกับ", "en": "About"}, "nav_contact": {"th": "ติดต่อ", "en": "Contact"}, "exp_h": {"th": "ประสบการณ์", "en": "Experience"}, "exp_role": {"th": "Zenith Comp · ฝึกงานตำแหน่ง Backend Developer & BA", "en": "Zenith Comp · Backend Developer & BA internship"}, "exp_date": {"th": "24 ส.ค. – 1 ธ.ค. 2569", "en": "24 Aug – 1 Dec 2026"}, "exp_lead": {"th": "ผมทำครบทุกขั้นของงานระบบ ตั้งแต่เก็บ requirement จนถึงทดสอบกับลูกค้า ใน 3 โ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ลูกค้าจริง", "en": "Every stage of the work, from gathering requirements to testing with the client, across three client projects."}, "pipe_label": {"th": "ขั้นของงาน", "en": "Stage of work"}, "st_req": {"th": "Requirement", "en": "Requirement"}, "st_req_s": {"th": "เก็บความต้องการ", "en": "gather needs"}, "st_spec": {"th": "Spec", "en": "Spec"}, "st_spec_s": {"th": "เขียน SRS · ออกแบบ", "en": "SRS · screens"}, "st_build": {"th": "Build", "en": "Build"}, "st_build_s": {"th": "backend · เชื่อมระบบ", "en": "backend · integrations"}, "st_test": {"th": "Test", "en": "Test"}, "st_test_s": {"th": "ทดสอบกับลูกค้า", "en": "test with client"}, "pj_bm": {"th": "Behn Meyer TMS / Shipping Hub · ระบบติดตามการขนส่ง web + mobile", "en": "Behn Meyer TMS / Shipping Hub · shipment tracking, web + mobile"}, "pj_gov": {"th": "ระบบคำของบประมาณและติดตามผล · กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์", "en": "Budget request & monitoring system · Ministry of Social Development and Human Security"}, "pj_nsc": {"th": "M-NSC · ระบบบริหารการประชุม web + iPad", "en": "M-NSC · meeting management, web + iPad"}, "e1": {"th": "เข้าประชุมกับลูกค้า เก็บ requirement ได้กว่า 100 รายการ จาก 5 กลุ่มผู้ใช้: บริษัทขนส่ง, Admin, เซลล์, ลูกค้า และคนขับ", "en": "Joined client meetings and gathered 100+ requirements from 5 user groups: carriers, admins, sales, customers and drivers."}, "e2": {"th": "เขียน SRS 69 Functional Requirements พร้อม BPMN swimlane ออกแบบหน้าจอ web/mobile และทำเอกสารแปล UI ภาษาอังกฤษ 157 รายการ", "en": "Wrote the SRS: 69 functional requirements with BPMN swimlanes. Designed the web and mobile screens and an English UI translation sheet of 157 entries."}, "e3": {"th": "ร่วมเขียน SRS 5 ระบบย่อย (คำของบประมาณ, ติดตามการเบิกจ่าย, e-Inspection, PA-OPS, PMQA) วิเคราะห์ระบบเดิมบน AppSheet และออกแบบหน้าจอ PA-OPS", "en": "Co-wrote the SRS for 5 subsystems (budget requests, disbursement tracking, e-Inspection, PA-OPS, PMQA), analyzed the existing AppSheet system and designed the PA-OPS screens."}, "e4": {"th": "คำนวณ CO2 จากการขนส่งตาม Emission Factor ของ TGO (องค์การบริหารจัดการก๊าซเรือนกระจก) ตาม ISO 14060 เชื่อมต่อ SAP, CRC และ GHG API ติดตามรถด้วย Mapbox และเก็บรูปภาพใน MinIO", "en": "Calculated transport CO2 with emission factors from TGO, Thailand's greenhouse gas agency (ISO 14060), integrated the SAP, CRC and GHG APIs, tracked vehicles with Mapbox and stored images in MinIO."}, "e5": {"th": "ทดสอบการประชุมทั่วไปและการประชุมลับ การส่งข้อความถึงผู้เข้าประชุม การ login ด้วย Thai ID ลายน้ำ และการล็อกเอกสารก่อนเวลา แล้วบันทึกปัญหาและติดตามการแก้ไขร่วมกับลูกค้า", "en": "Tested general and confidential meetings, attendee messaging, Thai ID login, watermarks and time-locked documents, then logged issues and tracked fixes with the client."}, "proj_h": {"th": "ผลงาน", "en": "Projects"}, "neo_t": {"th": "NeoFit · ลองสวมเครื่องประดับเสมือนจริง", "en": "NeoFit · virtual jewelry try-on"}, "neo_k": {"th": "Senior Project · ทำเป็นทีม", "en": "Senior project · team"}, "neo_d": {"th": "เว็บแอปให้ลูกค้าดูเครื่องประดับเป็น 3D Model และลองสวมด้วย AR ผมรับผิดชอบการเขียนโปรแกรมและฟังก์ชันหลักของระบบ เก็บความต้องการจากลูกค้าจริง และปรับต้นแบบตามผลทดสอบ", "en": "A web app where shoppers view jewelry as 3D models and try it on with AR. I built the core features, gathered requirements from a real client and refined the prototype through testing."}, "neo_r": {"th": "ผลประเมิน 4.14/5 จากผู้ใช้ 35 คน · 4.20/5 จากผู้เชี่ยวชาญ 5 คน", "en": "Rated 4.14/5 by 35 users · 4.20/5 by 5 experts"}, "neo_alt": {"th": "หน้าแรกของเว็บ NeoFit: หัวข้อ Virtual Try On Jewelry ข้างภาพแหวนบนนิ้ว", "en": "NeoFit home page: the Virtual Try On Jewelry headline beside a ring on a finger"}, "neo_link": {"th": "เปิดเว็บจริง", "en": "Open the live site"}, "newtab": {"th": "(เปิดในแท็บใหม่)", "en": "(opens in a new tab)"}, "myl_t": {"th": "Match Your Life · แอปจับคู่ประกัน", "en": "Match Your Life · insurance matching app"}, "myl_k": {"th": "Hackathon · ทำเป็นทีม", "en": "Hackathon · team"}, "myl_d": {"th": "โมบายแอปที่จับคู่แผนประกันกับไลฟ์สไตล์ของผู้ใช้โดยไม่ต้องผ่านเซลส์ ร่วมคิดแนวคิดและสร้างต้นแบบกับทีมภายใต้เวลาจำกัดของการแข่งขัน", "en": "A mobile app that matches insurance plans to a user's lifestyle without a sales agent. Built the concept and prototype with a team within the hackathon's time limit."}, "myl_alt1": {"th": "หน้าเข้าสู่ระบบของแอป Match Your Life", "en": "Match Your Life login screen"}, "myl_alt2": {"th": "หน้ากรอกวันเกิดของแอป", "en": "Birthday entry screen"}, "myl_alt3": {"th": "หน้าสรุปความครอบคลุมของประกันเป็นกราฟใยแมงมุม", "en": "Coverage summary as a radar chart"}, "stock_t": {"th": "Stock Management System · ระบบจัดการสต็อก", "en": "Stock Management System"}, "personal": {"th": "โ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ส่วนตัว", "en": "Personal project"}, "stock_d": {"th": "ระบบหลังบ้านที่นำเข้าข้อมูลสินค้า รายงานขาย และประวัติลูกค้าจากไฟล์ Excel ได้โดยตรง ส่งออกกลับเป็น Excel ได้ มี Dashboard บิล โอนสินค้า และจัดการผู้ใช้", "en": "An inventory back office that imports products, sales reports and customer history straight from Excel and exports back to it, with a dashboard, billing, stock transfers and user management."}, "stock_alt": {"th": "หน้า Import ข้อมูลจาก Excel ของระบบจัดการสต็อก", "en": "The Excel import screen of the stock system"}, "char_t": {"th": "Charites · ระบบสมาชิกและใบรับประกัน", "en": "Charites · membership & warranty"}, "char_d": {"th": "ระบบสมาชิกที่เก็บข้อมูลลูกค้า ประวัติการซื้อ และใบรับประกันไว้ในระบบ ลูกค้าไม่ต้องพกใบรับประกันเอง ส่วนพนักงานจัดการสต็อก การขาย และใบรับประกันได้ในที่เดียว", "en": "A membership system that keeps customer data, purchase history and warranties, so customers never carry paper warranty cards, while staff manage stock, sales and warranties in one place."}, "char_alt": {"th": "หน้าเข้าสู่ระบบสำหรับพนักงานและลูกค้าของ Charites", "en": "Charites sign-in options for staff and customers"}, "skills_h": {"th": "ทักษะ", "en": "Skills"}, "sk_work": {"th": "ใช้ในงานจริงที่ Zenith Comp", "en": "Used at work, Zenith Comp"}, "sk_proj": {"th": "ใช้ในโ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์", "en": "Used in projects"}, "sk_other": {"th": "ภาษาและเครื่องมืออื่น", "en": "Other languages & tools"}, "sk_learn": {"th": "กำลังเรียน", "en": "Learning"}, "sk_lang": {"th": "ภาษาที่ใช้สื่อสาร", "en": "Spoken languages"}, "sk_reqg": {"th": "เก็บ Requirement", "en": "Requirement gathering"}, "sk_cyber": {"th": "Cybersecurity", "en": "Cybersecurity"}, "sp_th": {"th": "ไทย (ภาษาแม่)", "en": "Thai (native)"}, "sp_en": {"th": "อังกฤษ (ระดับกลาง)", "en": "English (intermediate)"}, "about_h": {"th": "เกี่ยวกับผม", "en": "About"}, "about_p": {"th": "จบวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศและนวัตกรรม มหาวิทยาลัยกรุงเทพ (2565–2569) อยู่ชลบุรี ได้ลงมือทำจริงผ่าน Senior Project, Hackathon และการฝึกงาน และกำลังต่อยอดด้าน Cybersecurity จากใบรับรองด้านล่าง", "en": "B.Sc. Computer Science, School of Information Technology and Innovation, Bangkok University (2022–2026), based in Chonburi. Hands-on through a senior project, a hackathon and my internship, and building on the cybersecurity certificates below."}, "certs_h": {"th": "ใบรับรอง", "en": "Certificates"}, "c_ncsa": {"th": "Basic Cybersecurity", "en": "Basic Cybersecurity"}, "c_ncsa_m": {"th": "สกมช. (NCSA) · พ.ย. 2567", "en": "NCSA Thailand · Nov 2024"}, "c_fs": {"th": "พื้นฐาน Cybersecurity ที่สำคัญเพื่อการปกป้องระบบและข้อมูล", "en": "Essential Cybersecurity Fundamentals for Protecting Systems & Data"}, "c_fs_m": {"th": "FutureSkill · ก.ค. 2569", "en": "FutureSkill · Jul 2026"}, "c_gai": {"th": "Generative AI for Data Visualization", "en": "Generative AI for Data Visualization"}, "c_gai_m": {"th": "Coursera · ก.พ. 2568", "en": "Coursera · Feb 2025"}, "c_bot": {"th": "Python Chatbot with ChatGPT", "en": "Python Chatbot with ChatGPT"}, "c_bot_m": {"th": "Coursera · เม.ย. 2568", "en": "Coursera · Apr 2025"}, "view": {"th": "ดูใบรับรอง", "en": "View"}, "verify": {"th": "ตรวจสอบ", "en": "Verify"}, "contact_h": {"th": "ติดต่อ", "en": "Contact"}, "contact_p": {"th": "กำลังหาคนสาย Backend หรือ Full Stack หรืออยากรู้รายละเอียดโ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ไหน ส่งอีเมลมาได้เลยครับ", "en": "Hiring for a Backend or Full Stack role, or want details on any project? Send me an email."}, "phone": {"th": "โทร", "en": "Phone"}, "phone_num": {"th": "062-594-4932", "en": "+66 62-594-4932"}, "lang_done": {"th": "เปลี่ยนเป็นภาษาไทยแล้ว", "en": "Switched to English"}, "email_short": {"th": "อีเมล", "en": "Email"}, "copy": {"th": "คัดลอกอีเมล", "en": "Copy email"}, "copied": {"th": "คัดลอกแล้ว", "en": "Copied"}, "copy_fail": {"th": "คัดลอกไม่ได้ กดค้างที่อีเมลเพื่อคัดลอกเอง", "en": "Couldn't copy. Press and hold the address to copy it."}, "foot": {"th": "© 2569 ฑีฆายุ ปรัชญกุล · สร้างด้วย HTML, CSS และ JavaScript", "en": "© 2026 Teekayu Prachayakul · Built with HTML, CSS and JavaScript"}};
+const I18N = {"doc_title": {"th": "ฑีฆายุ ปรัชญกุล · Frontend Developer & Business Analyst", "en": "Teekayu Prachayakul · Frontend Developer & Business Analyst"}, "doc_desc": {"th": "พอร์ตโฟลิโอของ ฑีฆายุ ปรัชญกุล Frontend Developer & Business Analyst ที่ Zenith Comp: เก็บ requirement เขียน SRS และสร้าง backend ด้วย Go กับ PostgreSQL", "en": "Portfolio of Teekayu Prachayakul, Frontend Developer & Business Analyst at Zenith Comp: requirements, SRS documents and Go/PostgreSQL backends."}, "skip": {"th": "ข้ามไปที่เนื้อหา", "en": "Skip to content"}, "lang_label": {"th": "ภาษา", "en": "Language"}, "name": {"th": "ฑีฆายุ ปรัชญกุล", "en": "Teekayu Prachayakul"}, "name_short": {"th": "ฑีฆายุ ป.", "en": "Teekayu P."}, "where": {"th": "ฝึกงานที่ Zenith Comp · 24 ส.ค. – 1 ธ.ค. 2569", "en": "Intern at Zenith Comp · 24 Aug – 1 Dec 2026"}, "thesis": {"th": "ผมคุยกับลูกค้าจนได้ความต้องการที่ชัด เขียนเป็น SRS แล้วสร้าง backend ให้ใช้งานได้จริง", "en": "I turn client conversations into clear specs, and specs into working backends."}, "avail": {"th": "เปิดรับงานประจำสาย Backend / Full Stack", "en": "Open to full-time Backend / Full Stack roles"}, "avail_date": {"th": "เ⁠ร⁠ิ⁠่⁠ม⁠ง⁠า⁠นได้ ธ.ค. 2569", "en": "Available from Dec 2026"}, "cta_email": {"th": "ส่งอีเมลหาผม", "en": "Email me"}, "nav_label": {"th": "เมนูหลัก", "en": "Main"}, "nav_exp": {"th": "ประสบการณ์", "en": "Experience"}, "nav_proj": {"th": "ผลงาน", "en": "Projects"}, "nav_skills": {"th": "ทักษะ", "en": "Skills"}, "nav_about": {"th": "เกี่ยวกับ", "en": "About"}, "nav_contact": {"th": "ติดต่อ", "en": "Contact"}, "exp_h": {"th": "ประสบการณ์", "en": "Experience"}, "exp_role": {"th": "Zenith Comp · ฝึกงานตำแหน่ง Frontend Developer & BA", "en": "Zenith Comp · Frontend Developer & BA internship"}, "exp_date": {"th": "24 ส.ค. – 1 ธ.ค. 2569", "en": "24 Aug – 1 Dec 2026"}, "exp_lead": {"th": "ผมทำครบทุกขั้นของงานระบบ ตั้งแต่เก็บ requirement จนถึงทดสอบกับลูกค้า ใน 3 โ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ลูกค้าจริง", "en": "Every stage of the work, from gathering requirements to testing with the client, across three client projects."}, "pipe_label": {"th": "ขั้นของงาน", "en": "Stage of work"}, "st_req": {"th": "Requirement", "en": "Requirement"}, "st_req_s": {"th": "เก็บความต้องการ", "en": "gather needs"}, "st_spec": {"th": "Spec", "en": "Spec"}, "st_spec_s": {"th": "เขียน SRS · ออกแบบ", "en": "SRS · screens"}, "st_build": {"th": "Build", "en": "Build"}, "st_build_s": {"th": "backend · เชื่อมระบบ", "en": "backend · integrations"}, "st_test": {"th": "Test", "en": "Test"}, "st_test_s": {"th": "ทดสอบกับลูกค้า", "en": "test with client"}, "pj_bm": {"th": "Behn Meyer TMS / Shipping Hub · ระบบติดตามการขนส่ง web + mobile", "en": "Behn Meyer TMS / Shipping Hub · shipment tracking, web + mobile"}, "pj_gov": {"th": "ระบบคำของบประมาณและติดตามผล · กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์", "en": "Budget request & monitoring system · Ministry of Social Development and Human Security"}, "pj_nsc": {"th": "M-NSC · ระบบบริหารการประชุม web + iPad", "en": "M-NSC · meeting management, web + iPad"}, "e1": {"th": "เข้าประชุมกับลูกค้า เก็บ requirement ได้กว่า 100 รายการ จาก 5 กลุ่มผู้ใช้: บริษัทขนส่ง, Admin, เซลล์, ลูกค้า และคนขับ", "en": "Joined client meetings and gathered 100+ requirements from 5 user groups: carriers, admins, sales, customers and drivers."}, "e2": {"th": "เขียน SRS 69 Functional Requirements พร้อม BPMN swimlane ออกแบบหน้าจอ web/mobile และทำเอกสารแปล UI ภาษาอังกฤษ 157 รายการ", "en": "Wrote the SRS: 69 functional requirements with BPMN swimlanes. Designed the web and mobile screens and an English UI translation sheet of 157 entries."}, "e3": {"th": "ร่วมเขียน SRS 5 ระบบย่อย (คำของบประมาณ, ติดตามการเบิกจ่าย, e-Inspection, PA-OPS, PMQA) วิเคราะห์ระบบเดิมบน AppSheet และออกแบบหน้าจอ PA-OPS", "en": "Co-wrote the SRS for 5 subsystems (budget requests, disbursement tracking, e-Inspection, PA-OPS, PMQA), analyzed the existing AppSheet system and designed the PA-OPS screens."}, "e4": {"th": "คำนวณ CO2 จากการขนส่งตาม Emission Factor ของ TGO (องค์การบริหารจัดการก๊าซเรือนกระจก) ตาม ISO 14060 เชื่อมต่อ SAP, CRC และ GHG API ติดตามรถด้วย Mapbox และเก็บรูปภาพใน MinIO", "en": "Calculated transport CO2 with emission factors from TGO, Thailand's greenhouse gas agency (ISO 14060), integrated the SAP, CRC and GHG APIs, tracked vehicles with Mapbox and stored images in MinIO."}, "e5": {"th": "ทดสอบการประชุมทั่วไปและการประชุมลับ การส่งข้อความถึงผู้เข้าประชุม การ login ด้วย Thai ID ลายน้ำ และการล็อกเอกสารก่อนเวลา แล้วบันทึกปัญหาและติดตามการแก้ไขร่วมกับลูกค้า", "en": "Tested general and confidential meetings, attendee messaging, Thai ID login, watermarks and time-locked documents, then logged issues and tracked fixes with the client."}, "proj_h": {"th": "ผลงาน", "en": "Projects"}, "neo_t": {"th": "NeoFit · ลองสวมเครื่องประดับเสมือนจริง", "en": "NeoFit · virtual jewelry try-on"}, "neo_k": {"th": "Senior Project · ทำเป็นทีม", "en": "Senior project · team"}, "neo_d": {"th": "เว็บแอปให้ลูกค้าดูเครื่องประดับเป็น 3D Model และลองสวมด้วย AR ผมรับผิดชอบการเขียนโปรแกรมและฟังก์ชันหลักของระบบ เก็บความต้องการจากลูกค้าจริง และปรับต้นแบบตามผลทดสอบ", "en": "A web app where shoppers view jewelry as 3D models and try it on with AR. I built the core features, gathered requirements from a real client and refined the prototype through testing."}, "neo_r": {"th": "ผลประเมิน 4.14/5 จากผู้ใช้ 35 คน · 4.20/5 จากผู้เชี่ยวชาญ 5 คน", "en": "Rated 4.14/5 by 35 users · 4.20/5 by 5 experts"}, "neo_alt": {"th": "หน้าแรกของเว็บ NeoFit: หัวข้อ Virtual Try On Jewelry ข้างภาพแหวนบนนิ้ว", "en": "NeoFit home page: the Virtual Try On Jewelry headline beside a ring on a finger"}, "neo_link": {"th": "เปิดเว็บจริง", "en": "Open the live site"}, "newtab": {"th": "(เปิดในแท็บใหม่)", "en": "(opens in a new tab)"}, "myl_t": {"th": "Match Your Life · แอปจับคู่ประกัน", "en": "Match Your Life · insurance matching app"}, "myl_k": {"th": "Hackathon · ทำเป็นทีม", "en": "Hackathon · team"}, "myl_d": {"th": "โมบายแอปที่จับคู่แผนประกันกับไลฟ์สไตล์ของผู้ใช้โดยไม่ต้องผ่านเซลส์ ร่วมคิดแนวคิดและสร้างต้นแบบกับทีมภายใต้เวลาจำกัดของการแข่งขัน", "en": "A mobile app that matches insurance plans to a user's lifestyle without a sales agent. Built the concept and prototype with a team within the hackathon's time limit."}, "myl_alt1": {"th": "หน้าเข้าสู่ระบบของแอป Match Your Life", "en": "Match Your Life login screen"}, "myl_alt2": {"th": "หน้ากรอกวันเกิดของแอป", "en": "Birthday entry screen"}, "myl_alt3": {"th": "หน้าสรุปความครอบคลุมของประกันเป็นกราฟใยแมงมุม", "en": "Coverage summary as a radar chart"}, "stock_t": {"th": "Stock Management System · ระบบจัดการสต็อก", "en": "Stock Management System"}, "personal": {"th": "โ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ส่วนตัว", "en": "Personal project"}, "stock_d": {"th": "ระบบหลังบ้านที่นำเข้าข้อมูลสินค้า รายงานขาย และประวัติลูกค้าจากไฟล์ Excel ได้โดยตรง ส่งออกกลับเป็น Excel ได้ มี Dashboard บิล โอนสินค้า และจัดการผู้ใช้", "en": "An inventory back office that imports products, sales reports and customer history straight from Excel and exports back to it, with a dashboard, billing, stock transfers and user management."}, "stock_alt": {"th": "หน้า Import ข้อมูลจาก Excel ของระบบจัดการสต็อก", "en": "The Excel import screen of the stock system"}, "char_t": {"th": "Charites · ระบบสมาชิกและใบรับประกัน", "en": "Charites · membership & warranty"}, "char_d": {"th": "ระบบสมาชิกที่เก็บข้อมูลลูกค้า ประวัติการซื้อ และใบรับประกันไว้ในระบบ ลูกค้าไม่ต้องพกใบรับประกันเอง ส่วนพนักงานจัดการสต็อก การขาย และใบรับประกันได้ในที่เดียว", "en": "A membership system that keeps customer data, purchase history and warranties, so customers never carry paper warranty cards, while staff manage stock, sales and warranties in one place."}, "char_alt": {"th": "หน้าเข้าสู่ระบบสำหรับพนักงานและลูกค้าของ Charites", "en": "Charites sign-in options for staff and customers"}, "skills_h": {"th": "ทักษะ", "en": "Skills"}, "sk_work": {"th": "ใช้ในงานจริงที่ Zenith Comp", "en": "Used at work, Zenith Comp"}, "sk_proj": {"th": "ใช้ในโ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์", "en": "Used in projects"}, "sk_other": {"th": "ภาษาและเครื่องมืออื่น", "en": "Other languages & tools"}, "sk_learn": {"th": "กำลังเรียน", "en": "Learning"}, "sk_lang": {"th": "ภาษาที่ใช้สื่อสาร", "en": "Spoken languages"}, "sk_reqg": {"th": "เก็บ Requirement", "en": "Requirement gathering"}, "sk_cyber": {"th": "Cybersecurity", "en": "Cybersecurity"}, "sp_th": {"th": "ไทย (ภาษาแม่)", "en": "Thai (native)"}, "sp_en": {"th": "อังกฤษ (ระดับกลาง)", "en": "English (intermediate)"}, "about_h": {"th": "เกี่ยวกับผม", "en": "About"}, "about_p": {"th": "จบวิทยาการคอมพิวเตอร์ คณะเทคโนโลยีสารสนเทศและนวัตกรรม มหาวิทยาลัยกรุงเทพ (2565–2569) อยู่ชลบุรี ได้ลงมือทำจริงผ่าน Senior Project, Hackathon และการฝึกงาน และกำลังต่อยอดด้าน Cybersecurity จากใบรับรองด้านล่าง", "en": "B.Sc. Computer Science, School of Information Technology and Innovation, Bangkok University (2022–2026), based in Chonburi. Hands-on through a senior project, a hackathon and my internship, and building on the cybersecurity certificates below."}, "certs_h": {"th": "ใบรับรอง", "en": "Certificates"}, "c_ncsa": {"th": "Basic Cybersecurity", "en": "Basic Cybersecurity"}, "c_ncsa_m": {"th": "สกมช. (NCSA) · พ.ย. 2567", "en": "NCSA Thailand · Nov 2024"}, "c_fs": {"th": "พื้นฐาน Cybersecurity ที่สำคัญเพื่อการปกป้องระบบและข้อมูล", "en": "Essential Cybersecurity Fundamentals for Protecting Systems & Data"}, "c_fs_m": {"th": "FutureSkill · ก.ค. 2569", "en": "FutureSkill · Jul 2026"}, "c_gai": {"th": "Generative AI for Data Visualization", "en": "Generative AI for Data Visualization"}, "c_gai_m": {"th": "Coursera · ก.พ. 2568", "en": "Coursera · Feb 2025"}, "c_bot": {"th": "Python Chatbot with ChatGPT", "en": "Python Chatbot with ChatGPT"}, "c_bot_m": {"th": "Coursera · เม.ย. 2568", "en": "Coursera · Apr 2025"}, "view": {"th": "ดูใบรับรอง", "en": "View"}, "verify": {"th": "ตรวจสอบ", "en": "Verify"}, "contact_h": {"th": "ติดต่อ", "en": "Contact"}, "contact_p": {"th": "กำลังหาคนสาย Backend หรือ Full Stack หรืออยากรู้รายละเอียดโ⁠ป⁠ร⁠เ⁠จ⁠ก⁠ต⁠์ไหน ส่งอีเมลมาได้เลยครับ", "en": "Hiring for a Backend or Full Stack role, or want details on any project? Send me an email."}, "phone": {"th": "โทร", "en": "Phone"}, "phone_num": {"th": "062-594-4932", "en": "+66 62-594-4932"}, "lang_done": {"th": "เปลี่ยนเป็นภาษาไทยแล้ว", "en": "Switched to English"}, "email_short": {"th": "อีเมล", "en": "Email"}, "copy": {"th": "คัดลอกอีเมล", "en": "Copy email"}, "copied": {"th": "คัดลอกแล้ว", "en": "Copied"}, "copy_fail": {"th": "คัดลอกไม่ได้ กดค้างที่อีเมลเพื่อคัดลอกเอง", "en": "Couldn't copy. Press and hold the address to copy it."}, "foot": {"th": "© 2569 ฑีฆายุ ปรัชญกุล · สร้างด้วย HTML, CSS และ JavaScript", "en": "© 2026 Teekayu Prachayakul · Built with HTML, CSS and JavaScript"}};
 (() => {
   "use strict";
   const root = document.documentElement;
@@ -566,6 +648,7 @@ const I18N = {"doc_title": {"th": "ฑีฆายุ ปรัชญกุล �
       p = (stage + frac * (next - stage)) / LAST;
     }
     pipe.style.setProperty("--p", p.toFixed(4));
+    pipe.dataset.stage = ORDER[stage];
     steps.forEach((s, n) => {
       s.classList.toggle("done", cur >= 0 && n < stage);
       s.classList.toggle("now", n === stage);

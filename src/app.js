@@ -123,6 +123,7 @@
       p = (stage + frac * (next - stage)) / LAST;
     }
     pipe.style.setProperty("--p", p.toFixed(4));
+    pipe.dataset.stage = ORDER[stage];
     steps.forEach((s, n) => {
       s.classList.toggle("done", cur >= 0 && n < stage);
       s.classList.toggle("now", n === stage);
